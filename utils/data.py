@@ -62,16 +62,16 @@ def get_team_stats(players):
         'guardian_names': guardian_names,
         'total_players': total_players,
         'total_experienced': total_experienced,
-        'average_height': total_height / total_players
+        'average_height': round(total_height / total_players, 2)
     }
 
 
 def render_stats(team, stats):
     player_names, guardian_names, total_players, total_experienced, average_height = stats.values()
     print(f'\n---- Team {team} Stats ----\n')
-    print(f'Total players: {total_players}\n')
+    print(f'Total players: {total_players}')
     print(f'\tInexperienced: {total_players - total_experienced}')
     print(f'\tExperienced: {total_experienced}')
-    print(f'\tAverage height: {average_height}')
-    print(f'\nPlayer names:\n\t{", ".join(player_names)}\n')
-    print(f'Guardian names:\n\t{", ".join(guardian_names)}\n')
+    print(f'\tAverage height: {average_height} inches')
+    print(f'\nPlayer names:\n\t{", ".join(player_names)}')
+    print(f'\nGuardian names:\n\t{", ".join(guardian_names)}\n')
