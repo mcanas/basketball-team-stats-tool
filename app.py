@@ -33,14 +33,9 @@ def start(players_by_team):
             print('Goodbye!')
             break
         if goto == 'STATS':
-            player_names, guardian_names, total_players, total_experienced, average_height = data.get_team_stats(
-                players_by_team[choice]).values()
-            print(f'\n---- Team {choice} Stats ----\n')
-            print(f'Total players: {total_players}\n')
-            print(f'Experienced players: {total_experienced}\n')
-            print(f'Average height: {average_height}\n')
-            print(f'Players on team:\n\t{", ".join(player_names)}\n')
-            print(f'Guardians:\n\t{", ".join(guardian_names)}\n')
+            data.render_stats(choice, data.get_team_stats(
+                players_by_team[choice]))
+            goto = 'MAIN'
 
 
 start(data.balance_teams(data.clean_data(constants.PLAYERS), constants.TEAMS))
