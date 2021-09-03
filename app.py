@@ -3,8 +3,11 @@ from utils import data
 from utils import menu
 
 
-def start(players_by_team):
+def start():
     print('BASKETBALL TEAM STATS TOOL')
+
+    players_by_team = data.balance_teams(
+        data.clean_data(constants.PLAYERS), constants.TEAMS)
 
     menu.add_menu(
         id='MAIN',
@@ -38,4 +41,5 @@ def start(players_by_team):
             goto = 'MAIN'
 
 
-start(data.balance_teams(data.clean_data(constants.PLAYERS), constants.TEAMS))
+if __name__ == '__main__':
+    start()
